@@ -22,7 +22,7 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.jsx?$|\.rt$/,
+                test: /\.jsx?$/,
                 include: APP_DIR,
                 loaders: [
                     "react-hot-loader",
