@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './styles.css';
-import App from './components/app/index';
+import BoilerplateTestPage from './components/boilerplate-test-page/index';
+
+import './assets/stylesheets/global.scss';
 
 ReactDOM.render(
-  <App />,
+  <BoilerplateTestPage />,
   document.getElementById('root')
 );

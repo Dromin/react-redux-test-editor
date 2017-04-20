@@ -42,12 +42,13 @@ const config = {
                 ],
             },
             {
-                test: /\.css$/,
+                test: /\.scss$/,
                 include: APP_DIR,
                 use: [
                     "style-loader",
                     "css-loader",
-                    // #TODO CSS postprocessing
+                    "postcss-loader",
+                    "sass-loader"
                 ],
             },
             {
