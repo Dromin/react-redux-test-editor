@@ -1,0 +1,17 @@
+<rt-import name="default"
+           as="ContentBlocksDebug"
+           from="./content-blocks-debug" />
+<rt-import name="default"
+           as="ContentBlockControl"
+           from="./content-block-control" />
+
+<div class="c_content-block-manager">
+    <h1>Content Block Manager</h1>
+    <div class="c_content-block-manager__side">
+        <ContentBlocksDebug contentBlocks="{ this.state.contentBlocks }" />
+    </div>
+    <div class="c_content-block-manager__side">
+        <ContentBlockControl contentBlockTypes="{ this.props.contentBlockTypes }"
+                             onContentBlockAdd="{ this.handleContentBlockAdd }" />
+    </div>
+</div>

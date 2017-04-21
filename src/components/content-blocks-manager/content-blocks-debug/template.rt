@@ -1,0 +1,4 @@
+<div class="c_content-blocks-debug">
+    <h2>Hi, I'm JSON! :D</h2>
+    <pre><code>{ JSON.stringify(this.props.contentBlocks, null, 4) }</code></pre>
+</div>

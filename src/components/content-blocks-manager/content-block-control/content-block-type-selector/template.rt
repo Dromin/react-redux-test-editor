@@ -1,0 +1,7 @@
+<select id="c_content-block-type-selector" onChange="{ this.handleContentBlockTypeChange }">
+    <option value="">Select a content block type:</option>
+    <option rt-repeat="item in this.props.contentBlockTypes"
+            key="{ item.code }"
+            value="{ item.code }">{ item.name }
+    </option>
+</select>

@@ -1,0 +1,15 @@
+<rt-import name="default"
+           as="ContentBlockTypeSelector"
+           from="./content-block-type-selector" />
+
+<div class="c_content-block-control">
+    <h2>Add a content block:</h2>
+    <ContentBlockTypeSelector contentBlockTypes="{ this.props.contentBlockTypes }"
+                              onContentBlockTypeChange="{ this.handleContentBlockTypeChange }" />
+    <textarea placeholder="Content block text..."
+              onInput="{ this.handleContentBlockContentInput }"></textarea>
+    <button title="Add content block"
+            onClick="{ this.handleContentBlockAdd }">
+        +
+    </button>
+</div>

@@ -33,6 +33,7 @@ const config = {
                 test: /\.rt$/,
                 include: APP_DIR,
                 use: [
+                    "babel-loader",
                     {
                         loader: "react-templates-loader",
                         options: {
@@ -45,10 +46,10 @@ const config = {
                 test: /\.scss$/,
                 include: APP_DIR,
                 use: [
-                    "style-loader",
-                    "css-loader",
+                    "style-loader", // creates style nodes from JS strings
+                    "css-loader",  // translates CSS into CommonJS
                     "postcss-loader",
-                    "sass-loader"
+                    "sass-loader" // compiles Sass to CSS
                 ],
             },
             {
