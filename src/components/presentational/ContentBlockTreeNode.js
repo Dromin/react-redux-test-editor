@@ -25,10 +25,10 @@ class ContentBlockTreeNode extends Component
                             />
                         </div>
                         {
-                            this.props.childContentBlocks.length > 0 &&
+                            this.props.contentBlock.childIds.length > 0 &&
                             <div className="o_recursive-tree__children">
                                 <ContentBlockTreeNodesList bemClassModifier={ this.props.bemClassModifier }
-                                                           contentBlocks={ this.props.childContentBlocks }
+                                                           contentBlockIds={ this.props.contentBlock.childIds }
                                 />
                             </div>
                         }
@@ -51,14 +51,6 @@ ContentBlockTreeNode.propTypes = {
             childIds: PropTypes.arrayOf( PropTypes.number ).isRequired,
         },
     ),
-    childContentBlocks: PropTypes.arrayOf( PropTypes.shape(
-        {
-            id: PropTypes.number.isRequired,
-            contentBlockTypeId: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            childIds: PropTypes.arrayOf( PropTypes.number ).isRequired,
-        },
-    ) ),
     contentBlockTypes: PropTypes.arrayOf( PropTypes.shape(
         {
             id: PropTypes.string.isRequired,

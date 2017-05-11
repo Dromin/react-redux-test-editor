@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { getContentBlocksArray } from "../../selectors/entities/contentBlocks";
+import { getAllContentBlockIds } from "../../selectors/entities/contentBlocks";
 import ContentBlocksTree from "../presentational/ContentBlocksTree";
 
 
@@ -8,7 +8,7 @@ const mapStateToProps = ( state, props ) =>
 {
     return {
         bemClassModifier: "tree",
-        contentBlocks: getContentBlocksArray( state ),
+        contentBlockIds: getAllContentBlockIds( state ),
     };
 };
 

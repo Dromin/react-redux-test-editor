@@ -1,30 +1,18 @@
 import { createSelector } from "reselect";
-import createCachedSelector from "re-reselect";
 
 
 export const getAllContentBlockIds = state => state.entities.contentBlocks.allContentBlockIds;
 
 export const getContentBlocksById = state => state.entities.contentBlocks.contentBlocksById;
 
-export const getContentBlockById = ( state, id ) => state.entities.contentBlocks.contentBlocksById[ id ];
-
-export const getContentBlocksArray = createSelector(
-    [ getAllContentBlockIds, getContentBlocksById ],
-    ( allContentBlockIds, contentBlocksById ) =>
-    {
-        return allContentBlockIds.map(
-            ( id ) =>
-            {
-                return contentBlocksById[ id ];
-            },
-        );
-    },
-);
+export const getContentBlockById = ( state, props ) => state.entities.contentBlocks.contentBlocksById[ props.contentBlockId ];
 
 export const getNestedContentBlockObjects = createSelector(
     [ getAllContentBlockIds, getContentBlocksById ],
     ( allContentBlockIds, contentBlocksById ) =>
     {
+        // note: for debugging purposes; avoid using this; use smaller connected components instead
+
         const recursivelyProcessContentBlocks = ( allIds, byId ) =>
         {
             return allIds.map(
@@ -47,13 +35,3 @@ export const getNestedContentBlockObjects = createSelector(
         return recursivelyProcessContentBlocks( allContentBlockIds, contentBlocksById );
     },
 );
-
-export const getChildContentBlocks = createCachedSelector(
-    [ getContentBlockById, getContentBlocksById ],
-    ( contentBlock, contentBlocksById ) =>
-    {
-        return contentBlock.childIds.map(
-            id => contentBlocksById[ id ],
-        );
-    },
-)( ( state, id ) => id );

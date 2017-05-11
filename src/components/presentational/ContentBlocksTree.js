@@ -14,7 +14,7 @@ class ContentBlocksTree extends Component
                 <div className="o_recursive-tree">
                     <div className="o_recursive-tree__wrapper">
                         <ContentBlockTreeNodesList bemClassModifier={ this.props.bemClassModifier }
-                                                   contentBlocks={ this.props.contentBlocks }
+                                                   contentBlockIds={ this.props.contentBlockIds }
                         />
                     </div>
                 </div>
@@ -26,14 +26,7 @@ class ContentBlocksTree extends Component
 
 ContentBlocksTree.propTypes = {
     bemClassModifier: PropTypes.string.isRequired,
-    contentBlocks: PropTypes.arrayOf( PropTypes.shape(
-        {
-            id: PropTypes.number.isRequired,
-            contentBlockTypeId: PropTypes.string.isRequired,
-            text: PropTypes.string.isRequired,
-            childIds: PropTypes.arrayOf( PropTypes.number ).isRequired,
-        },
-    ) ).isRequired,
+    contentBlockIds: PropTypes.arrayOf( PropTypes.number ).isRequired,
 };
 
 

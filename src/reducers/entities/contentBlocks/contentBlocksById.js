@@ -58,9 +58,10 @@ function updateContentBlockText ( currentState, action )
     const { payload } = action;
     const { contentBlockId, text } = payload;
 
-    const contentBlock = currentState[ contentBlockId ];
-
-    contentBlock["text"] = text;
+    const contentBlock = {
+        ...currentState[ contentBlockId ],
+        "text": text,
+    };
 
     return {
         ...currentState,
