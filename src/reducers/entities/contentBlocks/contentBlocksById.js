@@ -17,6 +17,7 @@ const initialState = {
               "condimentum suscipit, quam metus " +
               "commodo sapien, ut hendrerit nisi " +
               "ex a velit.",
+        childIds: [],
     },
     3: {
         id: 3,
@@ -28,6 +29,7 @@ const initialState = {
         id: 4,
         contentBlockTypeId: "CLARIFICATION",
         text: "Valar Dohaeris",
+        childIds: [],
     },
 };
 
@@ -41,6 +43,7 @@ function createEmptyContentBlockOfType ( currentState, action )
         id: contentBlockId,
         contentBlockTypeId: contentBlockTypeId,
         text: "",
+        childIds: [],
     };
 
     return {

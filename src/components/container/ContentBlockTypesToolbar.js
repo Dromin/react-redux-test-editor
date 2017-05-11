@@ -1,38 +1,18 @@
 import { connect } from "react-redux";
 import Toolbar from "../presentational/Toolbar";
 import { createEmptyContentBlockOfType } from "../../actions/entities/contentBlocks/creators"
+import { getContentBlockTypeButtonsArray } from "../../selectors/entities/contentBlockTypes";
 
 
-const getContentBlockTypeButtonObjects = ( allContentBlockTypeIds, contentBlockTypesById ) =>
-{
-    return allContentBlockTypeIds.map(
-        id =>
-        {
-            const contentBlockType = contentBlockTypesById[ id ];
-
-            return {
-                id: contentBlockType.id,
-                text: contentBlockType.name,
-                title: contentBlockType.description,
-                actionCode: "add-" + id.toLowerCase().replace( "_", "-" ),
-            };
-        },
-    );
-};
-
-
-const mapStateToProps = ( state ) =>
+const mapStateToProps = ( state, props ) =>
 {
     return {
         bemClassModifier: "content-block-types",
-        buttons: getContentBlockTypeButtonObjects(
-            state.entities.contentBlockTypes.allContentBlockTypeIds,
-            state.entities.contentBlockTypes.contentBlockTypesById,
-        ),
+        buttons: getContentBlockTypeButtonsArray( state ),
     };
 };
 
-const mapDispatchToProps = ( dispatch ) =>
+const mapDispatchToProps = ( dispatch, props ) =>
 {
     return {
         onButtonClick: ( contentBlockTypeId ) =>

@@ -1,37 +1,26 @@
-import React, { Component } from "react";
+import React from "react";
 import { connect } from "react-redux";
-import { getNestedContentBlockObjects } from "../../selectors/entities/contentBlocks";
-import { updateContentBlockText } from "../../actions/entities/contentBlocks/creators";
-import ContentBlockWidgetsTree from "../presentational/ContentBlockWidgetsTree";
+import { getContentBlocksArray } from "../../selectors/entities/contentBlocks";
+import ContentBlocksTree from "../presentational/ContentBlocksTree";
 
-const mapStateToProps = ( state ) =>
+
+const mapStateToProps = ( state, props ) =>
 {
-    console.log( 'manager' );
-    console.log( state.entities.contentBlocks.allContentBlockIds );
-
     return {
-        bemClassModifier: "manager",
-        contentBlocks: getNestedContentBlockObjects( state.entities.contentBlocks ),
-        contentBlockTypes: Object.keys( state.entities.contentBlockTypes.contentBlockTypesById )
-                                 .map( key => state.entities.contentBlockTypes.contentBlockTypesById[ key ] ),
+        bemClassModifier: "tree",
+        contentBlocks: getContentBlocksArray( state ),
     };
 };
 
-const mapDispatchToProps = ( dispatch ) =>
+const mapDispatchToProps = ( dispatch, props ) =>
 {
-    return {
-        onContentBlockTextInput: ( event, contentBlockId ) =>
-        {
-            dispatch( updateContentBlockText( contentBlockId, event.target.value ) );
-        },
-    };
+    return {};
 };
-
 
 const ContentBlockWidgetsManager = connect(
     mapStateToProps,
     mapDispatchToProps,
-)( ContentBlockWidgetsTree );
+)( ContentBlocksTree );
 
 
 export default ContentBlockWidgetsManager;

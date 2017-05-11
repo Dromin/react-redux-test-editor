@@ -1,9 +1,25 @@
 import { createSelector } from "reselect";
+import createCachedSelector from "re-reselect";
 
 
-export const getContentBlocksById = state => state.contentBlocksById;
+export const getAllContentBlockIds = state => state.entities.contentBlocks.allContentBlockIds;
 
-export const getAllContentBlockIds = state => state.allContentBlockIds;
+export const getContentBlocksById = state => state.entities.contentBlocks.contentBlocksById;
+
+export const getContentBlockById = ( state, id ) => state.entities.contentBlocks.contentBlocksById[ id ];
+
+export const getContentBlocksArray = createSelector(
+    [ getAllContentBlockIds, getContentBlocksById ],
+    ( allContentBlockIds, contentBlocksById ) =>
+    {
+        return allContentBlockIds.map(
+            ( id ) =>
+            {
+                return contentBlocksById[ id ];
+            },
+        );
+    },
+);
 
 export const getNestedContentBlockObjects = createSelector(
     [ getAllContentBlockIds, getContentBlocksById ],
@@ -29,6 +45,15 @@ export const getNestedContentBlockObjects = createSelector(
         };
 
         return recursivelyProcessContentBlocks( allContentBlockIds, contentBlocksById );
-
     },
 );
+
+export const getChildContentBlocks = createCachedSelector(
+    [ getContentBlockById, getContentBlocksById ],
+    ( contentBlock, contentBlocksById ) =>
+    {
+        return contentBlock.childIds.map(
+            id => contentBlocksById[ id ],
+        );
+    },
+)( ( state, id ) => id );

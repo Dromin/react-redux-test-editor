@@ -23,7 +23,7 @@ ContentBlocksJsonDebug.propTypes = {
             id: PropTypes.number.isRequired,
             contentBlockTypeId: PropTypes.string.isRequired,
             text: PropTypes.string.isRequired,
-            childIds: PropTypes.arrayOf( PropTypes.number ),
+            childIds: PropTypes.arrayOf( PropTypes.number ).isRequired,
             children: PropTypes.arrayOf( PropTypes.object ).isRequired,
         },
     ) ).isRequired,

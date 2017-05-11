@@ -3,18 +3,15 @@ import { getNestedContentBlockObjects } from "../../selectors/entities/contentBl
 import ContentBlocksJsonDebug from "../presentational/ContentBlocksJsonDebug";
 
 
-const mapStateToProps = ( state ) =>
+const mapStateToProps = ( state, props ) =>
 {
-    console.log('preview');
-    console.log(state.entities.contentBlocks.allContentBlockIds);
-
     return {
         bemClassModifier: "slide-preview",
-        contentBlocks: getNestedContentBlockObjects( state.entities.contentBlocks ),
+        contentBlocks: getNestedContentBlockObjects( state ),
     };
 };
 
-const mapDispatchToProps = ( dispatch ) =>
+const mapDispatchToProps = ( dispatch, props ) =>
 {
     return {};
 };

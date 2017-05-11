@@ -111,7 +111,7 @@ ContentBlockWidget.propTypes = {
             id: PropTypes.number.isRequired,
             contentBlockTypeId: PropTypes.string.isRequired,
             text: PropTypes.string.isRequired,
-            childIds: PropTypes.arrayOf( PropTypes.number ),
+            childIds: PropTypes.arrayOf( PropTypes.number ).isRequired,
         },
     ),
     contentBlockTypes: PropTypes.arrayOf( PropTypes.shape(
@@ -122,7 +122,6 @@ ContentBlockWidget.propTypes = {
         },
     ) ).isRequired,
     onTextInput: PropTypes.func.isRequired,
-
 };
 
 

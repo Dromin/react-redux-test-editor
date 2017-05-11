@@ -19,6 +19,7 @@ const exampleState = {
                           "condimentum suscipit, quam metus " +
                           "commodo sapien, ut hendrerit nisi " +
                           "ex a velit.",
+                    childIds: [],
                 },
                 3: {
                     id: 3,
@@ -30,6 +31,7 @@ const exampleState = {
                     id: 4,
                     contentBlockTypeId: "CLARIFICATION",
                     text: "Valar Dohaeris",
+                    childIds: [],
                 },
             },
             allContentBlockIds: [ 1, 3 ],
