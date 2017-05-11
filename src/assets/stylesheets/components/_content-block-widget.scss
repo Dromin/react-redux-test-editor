@@ -1,0 +1,27 @@
+
+// ------------------------------
+// Content block widget component
+// ------------------------------
+
+
+    .c_content-block-widget
+    {
+        margin-top: 1em;
+
+        &__wrapper
+        {
+            background-color: lightskyblue;
+            padding: 0.5em;
+            padding-top: 0;
+        }
+
+        &__select,
+        &__input
+        {
+            box-sizing: border-box;
+            padding: 0.5em;
+            width: 100%;
+
+            margin-top: 0.5em;
+        }
+    }

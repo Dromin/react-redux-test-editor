@@ -1,19 +1,15 @@
-import { createStore, combineReducers } from "redux";
-import contentBlockReducer from "./components/content-blocks-manager/reducer";
+import { createStore } from "redux";
+import rootReducer from "./reducers";
 
-let store = createStore(
-    combineReducers(
-        {
-            contentBlockReducer,
-        },
-    ),
-);
 
-if ( process.env.NODE_ENV !== "production" )
-{
-    store.subscribe(
-        () => console.log( store.getState() ),
-    );
-}
+let store = createStore( rootReducer );
+
+// if ( process.env.NODE_ENV !== "production" )
+// {
+//     store.subscribe(
+//         () => console.log( store.getState() ),
+//     );
+// }
+
 
 export default store;

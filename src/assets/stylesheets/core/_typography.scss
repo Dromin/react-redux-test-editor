@@ -1,0 +1,17 @@
+
+// ---------------
+// Core typography
+// ---------------
+
+
+    body
+    {
+        font-family: $font-family--base;
+        font-weight: $font-weight--base;
+    }
+
+    pre
+    {
+        overflow: auto;
+        width: 100%;
+    }

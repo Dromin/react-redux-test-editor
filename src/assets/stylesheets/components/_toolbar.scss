@@ -1,0 +1,23 @@
+
+// -----------------
+// Toolbar component
+// -----------------
+
+
+    .c_toolbar
+    {
+        &__list
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .o_button
+        {
+            box-sizing: border-box;
+            display: block;
+            padding: 0.5em;
+            width: 100%;
+        }
+    }

@@ -1,0 +1,25 @@
+
+// ---------
+// Variables
+// ---------
+
+
+    // Breakpoints
+
+        $breakpoint--x-small:                       30em !default;
+        $breakpoint--small:                         45em !default;
+        $breakpoint--average:                       60em !default;
+        $breakpoint--large:                         80em !default;
+        $breakpoint--x-large:                       110em !default;
+        $breakpoint--xx-large:                      150em !default;
+
+
+    // Fonts
+
+        $font-family--base:         "Open Sans", sans-serif !default;
+        $font-weight--base:         300 !default;
+
+
+    // inkGrid
+
+        $inkgrid__font-family:      $font-family--base !default;

@@ -1,0 +1,37 @@
+
+// ------------------------
+// Slide editor page layout
+// ------------------------
+
+
+    .l_page--slide-editor
+    {
+        .l_page__wrapper
+        {
+            @include inkgrid-row;
+        }
+
+        .l_page__item
+        {
+            @include inkgrid-col;
+            @include inkgrid-col--parts (1);
+
+            @include respond-to ($breakpoint--average)
+            {
+                &--toolbar
+                {
+                    @include inkgrid-col--parts (8, 1);
+                }
+
+                &--manager
+                {
+                    @include inkgrid-col--parts (8, 3);
+                }
+
+                &--slide-preview
+                {
+                    @include inkgrid-col--parts (8, 4)
+                }
+            }
+        }
+    }
