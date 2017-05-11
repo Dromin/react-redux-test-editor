@@ -1,38 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { getNestedContentBlockObjects } from "../../selectors/entities/contentBlocks";
+import { updateContentBlockText } from "../../actions/entities/contentBlocks/creators";
 import ContentBlockWidgetsTree from "../presentational/ContentBlockWidgetsTree";
-import { updateContentBlockText } from "../../actions/creators";
-
-
-const getContentBlockObjects = ( allContentBlockIds, contentBlocksById ) =>
-{
-    // #TODO remove duplicate function (see SlidePreview.js)
-
-    return allContentBlockIds.map(
-        id =>
-        {
-            const contentBlock = contentBlocksById[ id ];
-            const children = contentBlock.childIds instanceof Array
-                ? getContentBlockObjects( contentBlock.childIds, contentBlocksById )
-                : []
-            ;
-
-            return {
-                ...contentBlock,
-                children,
-            };
-        },
-    );
-};
 
 const mapStateToProps = ( state ) =>
 {
+    console.log( 'manager' );
+    console.log( state.entities.contentBlocks.allContentBlockIds );
+
     return {
         bemClassModifier: "manager",
-        contentBlocks: getContentBlockObjects(
-            state.entities.contentBlocks.allContentBlockIds,
-            state.entities.contentBlocks.contentBlocksById,
-        ),
+        contentBlocks: getNestedContentBlockObjects( state.entities.contentBlocks ),
         contentBlockTypes: Object.keys( state.entities.contentBlockTypes.contentBlockTypesById )
                                  .map( key => state.entities.contentBlockTypes.contentBlockTypesById[ key ] ),
     };

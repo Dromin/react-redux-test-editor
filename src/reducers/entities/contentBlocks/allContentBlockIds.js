@@ -1,4 +1,4 @@
-import * as actions from "../../../actions/definitions";
+import * as actions from "../../../actions/entities/contentBlocks/definitions";
 
 
 const initialState = [

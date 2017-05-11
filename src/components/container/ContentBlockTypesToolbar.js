@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Toolbar from "../presentational/Toolbar";
-import { createEmptyContentBlockOfType } from "../../actions/creators"
+import { createEmptyContentBlockOfType } from "../../actions/entities/contentBlocks/creators"
 
 
 const getContentBlockTypeButtonObjects = ( allContentBlockTypeIds, contentBlockTypesById ) =>

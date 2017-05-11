@@ -1,34 +1,16 @@
 import { connect } from "react-redux";
+import { getNestedContentBlockObjects } from "../../selectors/entities/contentBlocks";
 import ContentBlocksJsonDebug from "../presentational/ContentBlocksJsonDebug";
 
 
-const getContentBlockObjects = ( allContentBlockIds, contentBlocksById ) =>
-{
-    return allContentBlockIds.map(
-        id =>
-        {
-            const contentBlock = contentBlocksById[ id ];
-            const children = contentBlock.childIds instanceof Array
-                ? getContentBlockObjects( contentBlock.childIds, contentBlocksById )
-                : []
-            ;
-
-            return {
-                ...contentBlock,
-                children,
-            };
-        },
-    );
-};
-
 const mapStateToProps = ( state ) =>
 {
+    console.log('preview');
+    console.log(state.entities.contentBlocks.allContentBlockIds);
+
     return {
         bemClassModifier: "slide-preview",
-        contentBlocks: getContentBlockObjects(
-            state.entities.contentBlocks.allContentBlockIds,
-            state.entities.contentBlocks.contentBlocksById
-        ),
+        contentBlocks: getNestedContentBlockObjects( state.entities.contentBlocks ),
     };
 };
 
