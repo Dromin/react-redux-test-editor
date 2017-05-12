@@ -29,7 +29,7 @@ class SlideEditorPage extends Component
                     </div>
                     <div className="l_page__item l_page__item--manager">
                         <div className="l_page__item__wrapper">
-                            <h2>Content block widgets manager</h2>
+                            <h2>Content blocks tree</h2>
                             <ContentBlockWidgetsManager />
                         </div>
                     </div>
